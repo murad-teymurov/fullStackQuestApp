@@ -17,7 +17,7 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public List<User> getAll(){
        return userService.getAllUsers();
     }
@@ -28,8 +28,8 @@ public class UserController {
     }
 
     @GetMapping("/{userId}")
-    public User getByIdUser(@PathVariable Long UserId){
-       return userService.getById(UserId);
+    public User getUser(@PathVariable Long userId){
+       return userService.getById(userId);
     }
 
     @PutMapping("/{userId}")
