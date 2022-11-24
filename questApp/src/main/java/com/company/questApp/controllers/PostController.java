@@ -3,12 +3,14 @@ package com.company.questApp.controllers;
 import com.company.questApp.entites.Post;
 import com.company.questApp.requests.PostCreateRequest;
 import com.company.questApp.requests.PostUpdateRequest;
+import com.company.questApp.responses.PostResponse;
 import com.company.questApp.services.PostService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/posts")
 public class PostController {
@@ -19,7 +21,7 @@ public class PostController {
         this.postService = postService;
     }
     @GetMapping
-    public List<Post> getAllPosts(@RequestParam Optional<Long> userId){
+    public List<PostResponse> getAllPosts(@RequestParam Optional<Long> userId){
         return postService.getAllPosts(userId);
     }
 
